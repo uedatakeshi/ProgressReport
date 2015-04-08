@@ -1,10 +1,15 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: [:tagshow]
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
+  end
+
+  def tagshow
+    @reports = Report.find(params[:id])
   end
 
   # GET /reports/1
